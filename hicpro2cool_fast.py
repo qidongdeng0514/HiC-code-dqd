@@ -7,8 +7,6 @@ def hicpro2cool(matrix_file, bed_file, output_cool):
     # 1. 读取BED文件，构建bins信息
     bins = pd.read_csv(bed_file, sep='\t', header=None, 
                        names=['chrom', 'start', 'end', 'bin_id'])
-    # 去除'chr'前缀（如果你的文件不需要，可以删除这行）
-    bins['chrom'] = bins['chrom'].str.replace('chr', '')
     
     # 2. 读取矩阵文件，构建像素表
     pixels = pd.read_csv(matrix_file, sep='\t', header=None,
